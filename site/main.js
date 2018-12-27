@@ -73,7 +73,7 @@ function MdToHtml(md) {
 }
 
 function initSidebar() {
-  $.getJSON('../config/markdown-organizer.json')
+  $.getJSON('./config/markdown-organizer.json')
     .then(function(data) {
       _createSidebar(data)
     })
