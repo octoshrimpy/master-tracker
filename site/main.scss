@@ -1,0 +1,107 @@
+// compile
+@import '_template';
+
+
+.main{
+  background: $clouds;
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+}
+
+.sidebar {
+  box-shadow: $shadow-4;
+  background: $aggieblue-dark;
+  padding: 1rem;
+  z-index: 3;
+  display: flex;
+  max-height: 100%;
+  overflow: auto;
+  @include custom-scroll;
+
+  .menu {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    .collapse-me {
+      display: none;
+    }
+
+    .menu-header {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        color: $white;
+        @include animate;
+        cursor: pointer;
+      }
+
+      .name {
+        font-size: .75em;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        flex-grow: 1;
+      }
+
+      &.is-expanded {
+
+        .icon {
+          transform : rotate(90deg);
+        }
+      }
+    }
+
+
+    .menu-label{
+
+      .icon {
+        cursor: pointer;
+
+        .is-open {
+          transform: rotate(90deg);
+        }
+      }
+
+      .name {
+        @include sidebar-hover;
+      }
+    }
+  }
+
+  .menu-grow {
+    flex-grow: 1;
+  }
+
+  .bottom-options li a{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+  }
+
+}
+
+.content-card {
+  background: $white;
+  overflow: auto;
+  max-height: 100%;
+
+  .content {
+    background: $clouds;
+    padding: 2rem;
+    min-height: 100%;
+
+    h1 {
+      @include sticky;
+      background: $white;
+      padding: 2rem 1rem;
+    }
+  }
+}
+
+img {
+  max-height: 25rem;
+}
+
+//
